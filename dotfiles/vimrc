@@ -32,4 +32,8 @@ colorscheme solarized
 
 set exrc
 set secure
+set number
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
+" User commands
+:command NE NERDTree. 
