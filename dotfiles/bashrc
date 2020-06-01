@@ -18,3 +18,5 @@ export PATH
 
 # User specific aliases and functions
 alias sudo="sudo "
+alias clean="clean.sh"
+alias setup_gcc="setup_gcc"
