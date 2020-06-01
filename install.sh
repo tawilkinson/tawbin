@@ -9,6 +9,7 @@ fi
 cp $DIR/setup_gcc.sh $HOME/bin/
 $HOME/bin/setup_gcc.sh
 cp $DIR/clean.sh $HOME/bin/
+cp $DIR/make_verb.sh $HOME/bin/
 
 #backup old bashrc
 if [ ! -f $HOME/.bashrc ]; then
