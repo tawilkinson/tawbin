@@ -20,6 +20,7 @@ export PATH
 alias sudo="sudo "
 alias clean="clean.sh"
 alias setup_gcc="setup_gcc.sh"
+alias mymake="CC=gcc4 CXX=g++4 cmake . && make -j"
 alias makev="make_verb.sh"
 alias boosttest="CTEST_OUTPUT_ON_FAILURE=TRUE make test"
 alias boosttest_msg="CTEST_OUTPUT_ON_FAILURE=TRUE BOOST_TEST_LOG_LEVEL=message make test"
