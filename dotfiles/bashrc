@@ -16,6 +16,11 @@ export PATH
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+# MATLAB env variables
+export GTK_PATH=/usr/lib64/gtk-2.0
+export LIBOVERLAY_SCROLLBAR=0
+export GIO_EXTRA_MODULES=/usr/lib64/gio/modules
+
 # User specific aliases and functions
 alias sudo="sudo "
 alias clean="clean.sh"
