@@ -16,6 +16,9 @@ export PATH
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
+# History for multiple terminals
+export PROMPT_COMMAND="history -a"
+
 # MATLAB env variables
 export GTK_PATH=/usr/lib64/gtk-2.0
 export LIBOVERLAY_SCROLLBAR=0
