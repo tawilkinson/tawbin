@@ -20,6 +20,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'Chiel92/vim-autoformat'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,3 +38,6 @@ let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 " User commands
 :command NE NERDTree. 
+
+" Autoformat on save
+au BufWrite * :Autoformat
