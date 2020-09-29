@@ -24,6 +24,12 @@ cp $DIR/dotfiles/vimrc $HOME/.vimrc
 if [ ! -d $HOME/.vim ]; then
 	mkdir $HOME/.vim
 fi
+if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
+	if [ ! -d $HOME/.vim/bundle ]; then
+		mkdir $HOME/.vim/bundle
+	fi
+	git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+fi
 cp $DIR/dotfiles/ycm_extra_conf.py $HOME/.vim/.ycm_extra_conf.py
 
 #load bashrc
