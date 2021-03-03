@@ -14,6 +14,11 @@ if [ ! -f $HOME/.bashrc ]; then
 	cp $HOME/.bashrc $HOME/.bashrc.bk
 fi
 cp $DIR/dotfiles/bashrc $HOME/.bashrc
+#backup old bash_profile
+if [ ! -f $HOME/.bash_profile ]; then
+	cp $HOME/.bash_profile $HOME/.bash_profile.bk
+fi
+cp $DIR/dotfiles/bash_profile $HOME/.bash_profile
 #backup old vimrc
 if [ ! -f $HOME/.vimrc ]; then
 	cp $HOME/.vimrc $HOME/.vimrc.bk
@@ -32,6 +37,7 @@ cp $DIR/dotfiles/ycm_extra_conf.py $HOME/.vim/.ycm_extra_conf.py
 
 #load bashrc
 source $HOME/.bashrc
+source $HOME/.bash_profile
 #install vim plugins
 if hash vim 2>/dev/null; then
 	vim +PluginInstall +qall
