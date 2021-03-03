@@ -6,8 +6,6 @@ if [ ! -d $HOME/bin ]; then
 	mkdir $HOME/bin
 fi
 # copy files
-cp $DIR/setup_gcc.sh $HOME/bin/
-$HOME/bin/setup_gcc.sh
 cp $DIR/clean.sh $HOME/bin/
 cp $DIR/make_verb.sh $HOME/bin/
 
