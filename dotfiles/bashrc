@@ -144,6 +144,17 @@ export GTK_PATH=/usr/lib64/gtk-2.0
 export LIBOVERLAY_SCROLLBAR=0
 export GIO_EXTRA_MODULES=/usr/lib64/gio/modules
 
+# FSL 
+FSLDIR=/usr/local/fsl
+. ${FSLDIR}/etc/fslconf/fsl.sh
+PATH=${FSLDIR}/bin:${PATH}
+export FSLDIR PATH
+
+# setup Rust
+if [ -f "$HOME/.cargo/env" ]; then
+    source "$HOME/.cargo/env"
+fi
+
 # User specific aliases and functions
 alias sudo="sudo "
 alias clean="clean.sh"
