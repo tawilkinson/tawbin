@@ -166,11 +166,5 @@ export LIBGL_ALWAYS_INDIRECT=1
 # User specific aliases and functions
 alias sudo="sudo "
 alias clean="clean.sh"
-alias setup_gcc="setup_gcc.sh"
-alias mymake="CC=gcc4 CXX=g++4 cmake . -DCMAKE_BUILD_TYPE=Release && make -j"
-alias mymakedebug="CC=gcc4 CXX=g++4 cmake . -DCMAKE_BUILD_TYPE=Debug && make -j"
 alias makev="make_verb.sh"
-alias test="ctest --output-on-failure"
-alias test_v="ctest --output-on-failure -V"
-alias test_vv="ctest --output-on-failure -VV"
 alias grep_below="grep -rnw . -e"
