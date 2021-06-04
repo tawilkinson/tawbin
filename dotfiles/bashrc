@@ -145,10 +145,10 @@ export LIBOVERLAY_SCROLLBAR=0
 export GIO_EXTRA_MODULES=/usr/lib64/gio/modules
 
 # FSL
-if [ -f "/usr/local/fsl" ]; then
-	FSLDIR=/usr/local/fsl
-else
+if [ -d "/usr/share/fsl/5.0" ]; then
 	FSLDIR=/usr/share/fsl/5.0
+else
+	FSLDIR=/usr/local/fsl
 fi
 . ${FSLDIR}/etc/fslconf/fsl.sh
 PATH=${FSLDIR}/bin:${PATH}
@@ -157,6 +157,12 @@ export FSLDIR PATH
 # setup Rust
 if [ -f "$HOME/.cargo/env" ]; then
 	source "$HOME/.cargo/env"
+fi
+
+# setup Texlive 2021
+if [ -d "/usr/local/texlive/2021/bin/x86_64-linux" ]; then
+	PATH="/usr/local/texlive/2021/bin/x86_64-linux:$PATH"
+	export PATH
 fi
 
 # User specific aliases and functions
