@@ -159,10 +159,6 @@ if [ -f "$HOME/.cargo/env" ]; then
 	source "$HOME/.cargo/env"
 fi
 
-# WSL X forwarding
-export DISPLAY=$(ip route | awk '/default via / {print $3; exit}' 2>/dev/null):0
-export LIBGL_ALWAYS_INDIRECT=1
-
 # User specific aliases and functions
 alias sudo="sudo "
 alias clean="clean.sh"
