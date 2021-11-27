@@ -165,6 +165,11 @@ if [ -d "/usr/local/texlive/2021/bin/x86_64-linux" ]; then
 	export PATH
 fi
 
+# Ruby setup
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
 # User specific aliases and functions
 alias sudo="sudo "
 alias clean="clean.sh"
