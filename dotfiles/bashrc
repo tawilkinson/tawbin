@@ -167,8 +167,16 @@ fi
 
 # Ruby setup
 # Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+if [ -d "$HOME/gems" ]; then
+	export GEM_HOME="$HOME/gems"
+	export PATH="$HOME/gems/bin:$PATH"
+fi
+
+#setup Julia
+if [ -d "/usr/share/julia/bin" ]; then
+	PATH="/usr/share/julia/bin:$PATH"
+	export PATH
+fi
 
 # User specific aliases and functions
 alias sudo="sudo "
