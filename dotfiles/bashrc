@@ -4,6 +4,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+LINUX_RELEASE=$(uname -r)
+echo "Linux Release: $LINUX_RELEASE"
+
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
@@ -30,7 +33,10 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+# skip on gentoo
+if [[ ${LINUX_RELEASE} !=  *"gentoo"* ]]; then
+	[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+fi
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -150,9 +156,12 @@ if [ -d "/usr/share/fsl/5.0" ]; then
 else
 	FSLDIR=/usr/local/fsl
 fi
-. ${FSLDIR}/etc/fslconf/fsl.sh
-PATH=${FSLDIR}/bin:${PATH}
-export FSLDIR PATH
+
+if [ -d ${FSLDIR} ]; then
+	. ${FSLDIR}/etc/fslconf/fsl.sh
+	PATH=${FSLDIR}/bin:${PATH}
+	export FSLDIR PATH
+fi
 
 # setup Rust
 if [ -f "$HOME/.cargo/env" ]; then
