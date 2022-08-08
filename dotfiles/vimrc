@@ -21,6 +21,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'vim-python/python-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -36,8 +37,10 @@ set secure
 set number
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
+let g:python_highlight_all = 1
+
 " User commands
-:command NE NERDTree. 
+:command NE NERDTree.
 
 " Autoformat on save
 au BufWrite * :Autoformat
