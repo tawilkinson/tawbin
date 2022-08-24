@@ -20,8 +20,9 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'Chiel92/vim-autoformat'
+Plugin 'vim-autoformat/vim-autoformat'
 Plugin 'vim-python/python-syntax'
+Plugin 'ycm-core/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -43,4 +44,11 @@ let g:python_highlight_all = 1
 :command NE NERDTree.
 
 " Autoformat on save
-au BufWrite * :Autoformat
+" au BufWrite * :Autoformat
+
+let g:ale_fixers = {}
+let g:ale_fixers.python = ['black']
+
+" Autoformat on F3
+noremap <F3> :Autoformat<CR>
+noremap <F9> :ALEFix<CR>
