@@ -9,18 +9,37 @@ fi
 cp $DIR/clean.sh $HOME/bin/
 cp $DIR/make_verb.sh $HOME/bin/
 
-#backup old bashrc
-if [ ! -f $HOME/.bashrc ]; then
+# backup old bashrc
+if [ -f $HOME/.bashrc ]; then
 	cp $HOME/.bashrc $HOME/.bashrc.bk
 fi
 cp $DIR/dotfiles/bashrc $HOME/.bashrc
-#backup old bash_profile
-if [ ! -f $HOME/.bash_profile ]; then
+# backup old bash_profile
+if [ -f $HOME/.bash_profile ]; then
 	cp $HOME/.bash_profile $HOME/.bash_profile.bk
 fi
 cp $DIR/dotfiles/bash_profile $HOME/.bash_profile
-#backup old vimrc
-if [ ! -f $HOME/.vimrc ]; then
+# copy aliases into bash_aliases
+if [ -f $HOME/.bash_aliases ]; then
+	mv $HOME/.bash_aliases $HOME/.bash_aliases.bk
+fi
+if [ ! -d $HOME/aliases ]; then
+	mkdir $HOME/aliases
+fi
+for filename in $DIR/aliases/*; do
+	echo "Adding $filename to $HOME/.bash_aliases"
+	echo "# $filename" >> $HOME/.bash_aliases
+	echo "$(<$filename )" >> $HOME/.bash_aliases
+	echo "" >> $HOME/.bash_aliases
+done
+for filename in $HOME/aliases/*; do
+	echo "Adding $filename to $HOME/.bash_aliases"
+	echo "# $filename" >> $HOME/.bash_aliases
+	echo "$(<$filename )" >> $HOME/.bash_aliases
+	echo "" >> $HOME/.bash_aliases
+done
+# backup old vimrc
+if [ -f $HOME/.vimrc ]; then
 	cp $HOME/.vimrc $HOME/.vimrc.bk
 fi
 cp $DIR/dotfiles/vimrc $HOME/.vimrc
@@ -35,10 +54,10 @@ if [ ! -d $HOME/.vim/bundle/Vundle.vim ]; then
 fi
 cp $DIR/dotfiles/ycm_extra_conf.py $HOME/.vim/.ycm_extra_conf.py
 
-#load bashrc
+# load bashrc
 source $HOME/.bashrc
 source $HOME/.bash_profile
-#install vim plugins
+# install vim plugins
 if hash vim 2>/dev/null; then
 	vim +PluginInstall +qall
 else
